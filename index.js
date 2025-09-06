@@ -1,6 +1,12 @@
 // CTF - SQL Injection no Login
 // Tecnologias: Node.js, Express, SQLite
 
+//Explicação SQL Injection:
+// Já que aplicação utiliza como consulta:
+// SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`;
+// Coloquei qualque nome no campo username 
+// E no campo de password coloquei ' OR '1''='1 já que esse comando sempre retorna verdadeiro
+// E como na aplicação tem a concatenação direta de dados foi possível acessar o sistema
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
